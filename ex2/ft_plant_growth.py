@@ -7,17 +7,17 @@ class Plant:
         self.days = age
         self.growth_rate = growth_rate
 
-    def show(self):
+    def show(self) -> None:
         print(f"{self.name}: {round(self.height, 1)}cm, {self.days} days old")
 
-    def grow(self):
+    def grow(self) -> None:
         self.height += self.growth_rate
 
-    def age(self):
+    def age(self) -> None:
         self.days += 1
 
 
-def main():
+def main() -> None:
     print("=== Garden Plant Growth ===")
     plant1: Plant = Plant("Rose", 25, 30, 0.8)
     plant1.show()

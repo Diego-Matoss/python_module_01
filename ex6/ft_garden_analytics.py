@@ -2,7 +2,7 @@
 
 class Plant:
     class Stats:
-        def __init__(self):
+        def __init__(self) -> None:
             self._grow_count = 0
             self._age_count = 0
             self._show_count = 0
@@ -18,7 +18,7 @@ class Plant:
         def display_shade(self) -> None:
             print(f" {self._shade_count} shade")
 
-    def __init__(self, name: str, height: float, age: int):
+    def __init__(self, name: str, height: float, age: int) -> None:
         self.name = name.capitalize()
         self._height = 0.0
         self._age = 0
@@ -95,7 +95,7 @@ class Tree(Plant):
         self._trunk_diameter = 0.0
         self.set_trunk_diameter(trunk_diameter)
 
-    def set_trunk_diameter(self, value: float):
+    def set_trunk_diameter(self, value: float) ->None:
         if value < 0:
             print("You can't set a negative trunk diameter")
         else:

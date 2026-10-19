@@ -34,8 +34,8 @@ class Plant:
     def older(self, days: int) -> None:
         self._age = self._age + days
 
-    def show(self) -> str:
-        return (
+    def show(self) -> None:
+        print(
             f"{self.name}: {round(self._height, 1)}cm, {self._age} days old"
         )
 
@@ -47,7 +47,7 @@ class Flower(Plant):
         self.is_blooming = False
 
     def show(self) -> None:
-        print(super().show())
+        super().show()
         print(f"Color: {self.color}")
         if self.is_blooming:
             print(f"{self.name} is blooming beautifully!")
@@ -64,7 +64,7 @@ class Tree(Plant):
             self, name: str, height: float, age: int, trunk_diameter: float
     ):
         super().__init__(name, height, age)
-        self._trunk_diameter = 0
+        self._trunk_diameter = 0.0
         self.set_trunk_diameter(trunk_diameter)
 
     def set_trunk_diameter(self, value: float):
@@ -77,7 +77,7 @@ class Tree(Plant):
         return self._trunk_diameter
 
     def show(self) -> None:
-        print(super().show())
+        super().show()
         print(f"Trunk diameter: {self.get_trunk_diameter()}")
 
     def produce_shade(self) -> None:
@@ -102,7 +102,7 @@ class Vegetable(Plant):
         self.nutritional_value = 0
 
     def show(self) -> None:
-        print(super().show())
+        super().show()
         print(
             f"Harvest season: {self.harvest_season}\n"
             f"Nutritional value: {self.nutritional_value}"
@@ -117,11 +117,26 @@ class Vegetable(Plant):
 
 
 def main() -> None:
-    vegetable = Vegetable("tomato", 5.0, 10, "april")
+    print("=== Garden Plant Types ===\n=== Flower")
+    flower = Flower("rose", 15.0, 10, "red")
+    flower.show()
+    flower.bloom()
+    flower.show()
 
+    print("\n===Tree")
+    tree = Tree("oak", 200.0, 365, 5.0)
+    tree.show()
+    tree.produce_shade()
+
+    print("\n===Vegetable")
+    vegetable = Vegetable("tomato", 5.0, 10, "april")
     vegetable.show()
     vegetable.grow(20)
     vegetable.older(20)
+    print(
+        f"[make {vegetable.name}"
+        f" grow and age for {vegetable.nutritional_value} days]"
+        )
     vegetable.show()
 
 

@@ -95,7 +95,7 @@ class Tree(Plant):
         self._trunk_diameter = 0.0
         self.set_trunk_diameter(trunk_diameter)
 
-    def set_trunk_diameter(self, value: float) ->None:
+    def set_trunk_diameter(self, value: float) -> None:
         if value < 0:
             print("You can't set a negative trunk diameter")
         else:
